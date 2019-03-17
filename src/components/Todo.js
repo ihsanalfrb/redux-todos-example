@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { deleteTodo, duplicateTodo } from '../actions'
+import { toggleTodo, deleteTodo, duplicateTodo } from '../actions'
 
-const Todo = ({ id, dispatch, onClick, completed, text }) => (
+const Todo = ({ dispatch, id, completed, text }) => (
   <div>
     <li
-      onClick={onClick}
+      onClick={() => dispatch(toggleTodo(id))}
       style={{
         textDecoration: completed ? 'line-through' : 'none'
       }}
@@ -19,7 +19,7 @@ const Todo = ({ id, dispatch, onClick, completed, text }) => (
 )
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 }
