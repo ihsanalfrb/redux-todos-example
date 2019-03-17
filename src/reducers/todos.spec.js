@@ -122,4 +122,38 @@ describe('todos reducer', () => {
       })
     ).toEqual([])
   })
+
+  it('should handle DUPLICATE_TODO', () => {
+    expect(
+      todos([
+        {
+          text: 'Run the tests',
+          completed: false,
+          id: 0
+        }, {
+          text: 'Use Redux',
+          completed: false,
+          id: 1
+        }
+      ], {
+        type: 'DUPLICATE_TODO',
+        id: 0,
+        nextTodoId: 2
+      }),
+    ).toEqual([
+      {
+        text: 'Run the tests',
+        completed: false,
+        id: 0
+      }, {
+        text: 'Use Redux',
+        completed: false,
+        id: 1
+      }, {
+        text: 'Run the tests',
+        completed: false,
+        id: 2
+      }
+    ])
+  })
 })
