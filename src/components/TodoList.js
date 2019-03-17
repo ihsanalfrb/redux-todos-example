@@ -6,6 +6,7 @@ const TodoList = ({ todos, toggleTodo }) => (
   <ul>
     {todos.map(todo =>
       <Todo
+        id={todo.id}
         key={todo.id}
         {...todo}
         onClick={() => toggleTodo(todo.id)}

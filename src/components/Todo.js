@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { deleteTodo } from '../actions'
 
-const Todo = ({ onClick, completed, text }) => (
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
-    {text}
-  </li>
+const Todo = ({ id, dispatch, onClick, completed, text }) => (
+  <div>
+    <li
+      onClick={onClick}
+      style={{
+        textDecoration: completed ? 'line-through' : 'none'
+      }}
+    >
+      {text}
+    </li>
+    <button onClick={() => dispatch(deleteTodo(id))}>Delete Todo</button>
+  </div>
 )
 
 Todo.propTypes = {
@@ -18,4 +23,4 @@ Todo.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default Todo
+export default connect()(Todo)
