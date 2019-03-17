@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { deleteTodo } from '../actions'
+import { deleteTodo, duplicateTodo } from '../actions'
 
 const Todo = ({ id, dispatch, onClick, completed, text }) => (
   <div>
@@ -14,6 +14,7 @@ const Todo = ({ id, dispatch, onClick, completed, text }) => (
       {text}
     </li>
     <button onClick={() => dispatch(deleteTodo(id))}>Delete Todo</button>
+    <button onClick={() => dispatch(duplicateTodo(id))}>Duplicate Todo</button>
   </div>
 )
 
