@@ -25,3 +25,9 @@ export const deleteTodo = id => ({
   type: 'DELETE_TODO',
   id
 })
+
+export const duplicateTodo = id => ({
+  type: 'DUPLICATE_TODO',
+  id,
+  nextTodoId: nextTodoId++
+})

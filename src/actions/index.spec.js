@@ -29,4 +29,12 @@ describe('todo actions', () => {
       id: 1
     })
   })
+
+  it('duplicateTodo should create DUPLICATE_TODO action', () => {
+    expect(actions.duplicateTodo(0)).toEqual({
+      type: 'DUPLICATE_TODO',
+      id: 0,
+      nextTodoId: 1
+    })
+  })
 })
